@@ -60,7 +60,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View  {
         startActivity(intent)
         finish()
         runOnUiThread {
-            Toast.makeText(this, "Please check the credentials!", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Successfully logged in!", Toast.LENGTH_LONG).show()
         }
     }
 

@@ -19,7 +19,7 @@ data class Todo(
 
     val body : String,
 
-    val done : Boolean = false,
+    var done : Boolean = false,
 
     @ColumnInfo(name = "user_id")
     val user_id : Int

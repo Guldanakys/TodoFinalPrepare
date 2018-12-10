@@ -3,6 +3,7 @@ package com.example.guldana.mytodo
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.Query
+import android.arch.persistence.room.Update
 import com.example.guldana.mytodo.models.Todo
 
 @Dao
@@ -13,6 +14,9 @@ interface TodoDao {
 
     @Query("Select count(*) from todos")
     fun getTodosCount() : Int
+
+    @Update
+    fun update(todo: Todo)
 
     @Query("Select * from todos where user_id = :user_id")
     fun getTodosByUserId (user_id : Int) : List<Todo>

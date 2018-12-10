@@ -29,8 +29,11 @@ class AddTodoActivity : AppCompatActivity() {
                     val d_id = todosDao.getTodosCount() + 1
                     val todo = Todo(id = d_id,title = title, body = body, user_id = currentUser)
                     todosDao.insert(todo)
-                    val result = Intent()
-                    setResult(Activity.RESULT_OK, result)
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.putExtra("userId", currentUser)
+                    //startActivityForResult(intent, ADD_TASK_REQUEST)
+                    startActivity(intent)
+                    //setResult(Activity.RESULT_OK, result)
                     finish()
                 }
             } else {

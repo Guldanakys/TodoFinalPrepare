@@ -35,7 +35,9 @@ class DoFragment : Fragment(), DoContract.View {
         view.flt_btn.setOnClickListener {
             val intent = Intent(activity, AddTodoActivity::class.java)
             intent.putExtra("userId", currentUser)
-            startActivityForResult(intent, ADD_TASK_REQUEST)
+            //startActivityForResult(intent, ADD_TASK_REQUEST)
+            startActivity(intent)
+            this.activity!!.finish()
         }
         return view
     }
@@ -47,11 +49,11 @@ class DoFragment : Fragment(), DoContract.View {
         recyclerView.adapter = adapter
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+   /* override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == ADD_TASK_REQUEST) {
             if (resultCode == Activity.RESULT_OK) {
                 Toast.makeText(activity, "To DO saved successfully!", Toast.LENGTH_LONG).show()
             }
         }
-    }
+    }*/
 }
